@@ -1,2 +1,5 @@
 %h1.top-view
   トップページ
+- @posts.each do |post|
+  = post.title
+  = post.text
