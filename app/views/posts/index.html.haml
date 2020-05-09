@@ -1,5 +1,15 @@
-%h1.top-view
-  トップページ
-- @posts.each do |post|
-  = post.title
-  = post.text
+.top
+  .top__header
+    %h1.top__header__title
+      Sakusaku
+    %ul.top__header__menu
+      %li.top__header__menu__list
+        = link_to "新規登録", "#"
+      %li.top__header__menu__list
+        = link_to "ログイン", "#"
+
+  .top__headline
+
+  .top__image
+
+  .top__snsLink
