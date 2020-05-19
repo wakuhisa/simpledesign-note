@@ -1,15 +1,203 @@
 .top
   .top__header
-    %h1.top__header__title
-      Sakusaku
-    %ul.top__header__menu
-      %li.top__header__menu__list
-        = link_to "新規登録", "#"
-      %li.top__header__menu__list
-        = link_to "ログイン", "#"
-
-  .top__headline
-
-  .top__image
-
-  .top__snsLink
+    .top__header__logo
+      %h1.top__header__logo__content
+        = link_to "Sakusaku", "#"
+    .top__header__nav
+      %ul.top__header__nav__menu
+        %li.top__header__nav__menu__list
+          = link_to "Home", "#", class: 'bg-red'
+        %li.top__header__nav__menu__list
+          = link_to "About", "#"
+        %li.top__header__nav__menu__list
+          = link_to "News", "#"
+        %li.top__header__nav__menu__list
+          = link_to "Topics", "#"
+        %li.top__header__nav__menu__list
+          = link_to "Blog", "#"
+  .top__section
+    .top__section__main
+      .top__section__main__heading
+        .top__section__main__heading__image
+          = image_tag "sample-1.jpg"
+        .top__section__main__heading__content
+          .top__section__main__heading__content__wrap
+            .top__section__main__heading__content__wrap__data
+              2020.05.13 TUE
+            .top__section__main__heading__content__wrap__title
+              実務で使えるRuby on Rails<br>
+              モダン設計TIPS
+            .top__section__main__heading__content__wrap__text
+              Webエンジニアの変化の勢いは留まるところを知りません。<br>
+              新しい知識やツールが増え...
+      .top__section__main__log
+        .top__section__main__log__title
+          NEWS
+        .top__section__main__log__section
+          .top__section__main__log__section__data
+            2020.05.14 WED
+          .top__section__main__log__section__tag
+            Rails
+          .top__section__main__log__section__comment
+            DB設計を更新しました。
+        .top__section__main__log__section
+          .top__section__main__log__section__data
+            2020.05.13 TUE
+          .top__section__main__log__section__tag.bg-blue
+            CSS
+          .top__section__main__log__section__comment
+            transitionの仕組みを解説しました。
+        .top__section__main__log__section
+          .top__section__main__log__section__data
+            2020.05.12 MON
+          .top__section__main__log__section__tag
+            Rails
+          .top__section__main__log__section__comment
+            devise gemの導入方法について更新しました。
+        .top__section__main__log__section
+          .top__section__main__log__section__data
+            2020.05.11 SUN
+          .top__section__main__log__section__tag.bg-blue
+            HTML
+          .top__section__main__log__section__comment
+            fontawesomeの導入方法について更新しました。
+        .top__section__main__log__section
+          .top__section__main__log__section__data
+            2020.05.10 SAT
+          .top__section__main__log__section__tag
+            Rails
+          .top__section__main__log__section__comment
+            DB設計について解説しました。
+      .top__section__main__article
+        .top__section__main__article__content
+          .top__section__main__article__content__image
+            = image_tag "sample-2.jpg"
+          .top__section__main__article__content__title
+            実務で使えるRuby on Rails モダン設計TIPS
+          .top__section__main__article__content__text
+            Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
+          .top__section__main__article__content__data
+            2020.05.15 FRI
+        .top__section__main__article__content
+          .top__section__main__article__content__image
+            = image_tag "sample-2.jpg"
+          .top__section__main__article__content__title
+            実務で使えるRuby on Rails モダン設計TIPS
+          .top__section__main__article__content__text
+            Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
+          .top__section__main__article__content__data
+            2020.05.15 FRI
+        .top__section__main__article__content
+          .top__section__main__article__content__image
+            = image_tag "sample-2.jpg"
+          .top__section__main__article__content__title
+            実務で使えるRuby on Rails モダン設計TIPS
+          .top__section__main__article__content__text
+            Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
+          .top__section__main__article__content__data
+            2020.05.15 FRI
+        .top__section__main__article__content
+          .top__section__main__article__content__image
+            = image_tag "sample-2.jpg"
+          .top__section__main__article__content__title
+            実務で使えるRuby on Rails モダン設計TIPS
+          .top__section__main__article__content__text
+            Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
+          .top__section__main__article__content__data
+            2020.05.15 FRI
+    .top__section__side
+      .top__section__side__rank
+        .top__section__side__rank__title
+          RANKING
+        .top__section__side__rank__wrap
+          .top__section__side__rank__wrap__image
+            = image_tag "sample-3.jpg"
+            .top__section__side__rank__wrap__image__number.bg-gold
+              1
+          .top__section__side__rank__wrap__text
+            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
+        .top__section__side__rank__wrap
+          .top__section__side__rank__wrap__image
+            = image_tag "sample-3.jpg"
+            .top__section__side__rank__wrap__image__number.bg-cilver
+              2
+          .top__section__side__rank__wrap__text
+            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
+        .top__section__side__rank__wrap
+          .top__section__side__rank__wrap__image
+            = image_tag "sample-3.jpg"
+            .top__section__side__rank__wrap__image__number.bg-copper
+              3
+          .top__section__side__rank__wrap__text
+            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
+        .top__section__side__rank__wrap
+          .top__section__side__rank__wrap__image
+            = image_tag "sample-3.jpg"
+            .top__section__side__rank__wrap__image__number
+              4
+          .top__section__side__rank__wrap__text
+            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
+        .top__section__side__rank__wrap
+          .top__section__side__rank__wrap__image
+            = image_tag "sample-3.jpg"
+            .top__section__side__rank__wrap__image__number
+              5
+          .top__section__side__rank__wrap__text
+            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
+        .top__section__side__rank__wrap
+          .top__section__side__rank__wrap__image
+            = image_tag "sample-3.jpg"
+            .top__section__side__rank__wrap__image__number
+              6
+          .top__section__side__rank__wrap__text
+            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
+      .top__section__side__document
+        .top__section__side__document__head
+          DOCUMENTS
+        .top__section__side__document__title
+          HTML
+        %ul.top__section__side__document__item
+          %li.top__section__side__document__item__list
+            = link_to "追加された要素", "#"
+          %li.top__section__side__document__item__list
+            = link_to "削除された要素", "#"
+          %li.top__section__side__document__item__list
+            = link_to "意味が変わった要素", "#"
+          %li.top__section__side__document__item__list
+            = link_to "HTML5のコンテンツモデル", "#"
+        .top__section__side__document__title
+          CSS
+        %ul.top__section__side__document__item
+          %li.top__section__side__document__item__list
+            = link_to "追加されたプロパティ", "#"
+          %li.top__section__side__document__item__list
+            = link_to "削除されたセレクタ", "#"
+          %li.top__section__side__document__item__list
+            = link_to "追加された単位", "#"
+        .top__section__side__document__title
+          Ruby on Rails
+        %ul.top__section__side__document__item
+          %li.top__section__side__document__item__list
+            = link_to "Rubyとは？", "#"
+          %li.top__section__side__document__item__list
+            = link_to "Railsとは？", "#"
+          %li.top__section__side__document__item__list
+            = link_to "MVCモデルの仕組み", "#"
+      .top__section__side__search
+        %form{action: "/", method: "post"}
+          %input{name: "search", class: "search", placeholder: "SEARCH", size: "29"}
+          %input{name: "submit", type: "submit", class: "submit"}
+          .top__section__side__search__comment
+            サイト内の文章を検索できます。
+  .top__footer
+    %ul.top__footer__menu
+      %li.top__footer__menu__list
+        = link_to "ABOUT ME", "#"
+      %li.top__footer__menu__list
+        = link_to "SITE MAP", "#"
+      %li.top__footer__menu__list
+        = link_to "SNS", "#"
+      %li.top__footer__menu__list
+        = link_to "CONTACT", "#"
+    .top__footer__copyright
+      © 2020 sakusaku
