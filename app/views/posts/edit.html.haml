@@ -1,0 +1,15 @@
+.post-form
+  %h3.post-form__title
+    = link_to "編集", root_path
+  = form_with model: @post, url: { action: :update }, local: true do |f|
+    .post-form__field
+      画像
+      = f.text_field :image, placeholder: "URL", class: "image-field"
+    .post-form__field
+      記事タイトル
+      = f.text_field :title, placeholder: "タイトル", class: "title-field"
+    .post-form__field
+      テキスト
+      = f.text_field :text, placeholder: "ご自由にお書きください。", class: "text-field"
+    .post-form__action
+      = f.submit "編集完了", class: "post-submit"
