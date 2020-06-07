@@ -2,7 +2,17 @@
   .top__header
     .top__header__logo
       %h1.top__header__logo__content
-        = link_to "Sakusaku", "#"
+        = link_to "Sakusaku", root_path
+    - if user_signed_in?
+      .top__header__signOut
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+      .top__header__newPost
+        = link_to "投稿", new_post_path
+    - else
+      .top__header__signIn
+        = link_to "ログイン", new_user_session_path, class: 'post'
+      .top__header__signUp
+        = link_to "新規登録", new_user_registration_path, class: 'post'
     .top__header__nav
       %ul.top__header__nav__menu
         %li.top__header__nav__menu__list
@@ -33,78 +43,54 @@
       .top__section__main__log
         .top__section__main__log__title
           NEWS
-        .top__section__main__log__section
-          .top__section__main__log__section__data
-            2020.05.14 WED
-          .top__section__main__log__section__tag
-            Rails
-          .top__section__main__log__section__comment
-            DB設計を更新しました。
-        .top__section__main__log__section
-          .top__section__main__log__section__data
-            2020.05.13 TUE
-          .top__section__main__log__section__tag.bg-blue
-            CSS
-          .top__section__main__log__section__comment
-            transitionの仕組みを解説しました。
-        .top__section__main__log__section
-          .top__section__main__log__section__data
-            2020.05.12 MON
-          .top__section__main__log__section__tag
-            Rails
-          .top__section__main__log__section__comment
-            devise gemの導入方法について更新しました。
-        .top__section__main__log__section
-          .top__section__main__log__section__data
-            2020.05.11 SUN
-          .top__section__main__log__section__tag.bg-blue
-            HTML
-          .top__section__main__log__section__comment
-            fontawesomeの導入方法について更新しました。
-        .top__section__main__log__section
-          .top__section__main__log__section__data
-            2020.05.10 SAT
-          .top__section__main__log__section__tag
-            Rails
-          .top__section__main__log__section__comment
-            DB設計について解説しました。
+        - @posts.each do |post|
+          .top__section__main__log__section
+            .top__section__main__log__section__data
+              = post.created_at.strftime("%Y.%m.%d")
+            .top__section__main__log__section__tag
+              Rails
+            .top__section__main__log__section__comment
+              = post.title
       .top__section__main__article
-        .top__section__main__article__content
-          .top__section__main__article__content__image
-            = image_tag "sample-2.jpg"
-          .top__section__main__article__content__title
-            実務で使えるRuby on Rails モダン設計TIPS
-          .top__section__main__article__content__text
-            Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
-          .top__section__main__article__content__data
-            2020.05.15 FRI
-        .top__section__main__article__content
-          .top__section__main__article__content__image
-            = image_tag "sample-2.jpg"
-          .top__section__main__article__content__title
-            実務で使えるRuby on Rails モダン設計TIPS
-          .top__section__main__article__content__text
-            Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
-          .top__section__main__article__content__data
-            2020.05.15 FRI
-        .top__section__main__article__content
-          .top__section__main__article__content__image
-            = image_tag "sample-2.jpg"
-          .top__section__main__article__content__title
-            実務で使えるRuby on Rails モダン設計TIPS
-          .top__section__main__article__content__text
-            Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
-          .top__section__main__article__content__data
-            2020.05.15 FRI
-        .top__section__main__article__content
-          .top__section__main__article__content__image
-            = image_tag "sample-2.jpg"
-          .top__section__main__article__content__title
-            実務で使えるRuby on Rails モダン設計TIPS
-          .top__section__main__article__content__text
-            Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
-          .top__section__main__article__content__data
-            2020.05.15 FRI
+        - @posts.each do |post|
+          .top__section__main__article__content
+            .top__section__main__article__content__image
+              = image_tag "sample-2.jpg"
+            .top__section__main__article__content__title
+              = post.title
+            .top__section__main__article__content__text
+              = post.text
+            .top__section__main__article__content__data
+              = post.created_at.strftime("%Y.%m.%d")
+            .top__section__main__article__content__edit
+              = link_to "編集", edit_post_path(post)
+        -# .top__section__main__article__content
+        -#   .top__section__main__article__content__image
+        -#     = image_tag "sample-2.jpg"
+        -#   .top__section__main__article__content__title
+        -#     実務で使えるRuby on Rails モダン設計TIPS
+        -#   .top__section__main__article__content__text
+        -#     Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
+        -#   .top__section__main__article__content__data
+        -#     2020.05.15 FRI
+        -# .top__section__main__article__content
+        -#   .top__section__main__article__content__image
+        -#     = image_tag "sample-2.jpg"
+        -#   .top__section__main__article__content__title
+        -#     実務で使えるRuby on Rails モダン設計TIPS
+        -#   .top__section__main__article__content__text
+        -#     Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
+        -#   .top__section__main__article__content__data
+        -#     2020.05.15 FRI
+        -# .top__section__main__article__content
+        -#   .top__section__main__article__content__image
+        -#     = image_tag "sample-2.jpg"
+        -#   .top__section__main__article__content__title
+        -#     実務で使えるRuby on Rails モダン設計TIPS
+        -#   .top__section__main__article__content__text
+        -#     Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
+        -#   .top__section__main__article__content__data
+        -#     2020.05.15 FRI
     .top__section__side
       .top__section__side__rank
         .top__section__side__rank__title
@@ -185,8 +171,8 @@
             = link_to "MVCモデルの仕組み", "#"
       .top__section__side__search
         %form{action: "/", method: "post"}
-          %input{name: "search", class: "search", placeholder: "SEARCH", size: "29"}
-          %input{name: "submit", type: "submit", class: "submit"}
+          %input{type: "search", name: "search", class: "search", placeholder: "SEARCH", size: "25"}
+          %input{type: "submit", class: "submit"}
           .top__section__side__search__comment
             サイト内の文章を検索できます。
   .top__footer
