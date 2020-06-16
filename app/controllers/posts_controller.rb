@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def index
+    @post = Post.order(updated_at: :desc).limit(1)
+    @post_news = Post.order(created_at: :desc).limit(5)
     @posts = Post.all.order(created_at: :desc)
   end
 
@@ -14,6 +16,10 @@ class PostsController < ApplicationController
     else
       redirect_to action: :new
     end
+  end
+
+  def show
+    @post = Post.find_by(id: params[:id])
   end
 
   def edit
