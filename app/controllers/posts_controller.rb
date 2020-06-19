@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def index
+    @post = Post.order(updated_at: :desc).limit(1)
+    @post_news = Post.order(created_at: :desc).limit(5)
     @posts = Post.all.order(created_at: :desc)
   end
 
@@ -16,6 +18,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find_by(id: params[:id])
+  end
+
   def edit
     @post = Post.find_by(id: params[:id])
   end
@@ -27,6 +33,12 @@ class PostsController < ApplicationController
     else
       render action: :edit
     end
+  end
+
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to :root
   end
 
   private

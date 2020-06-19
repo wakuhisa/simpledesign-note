@@ -10,6 +10,6 @@
       = f.text_field :title, placeholder: "タイトル", class: "title-field"
     .post-form__field
       テキスト
-      = f.text_field :text, placeholder: "ご自由にお書きください。", class: "text-field"
+      = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text-field"
     .post-form__action
       = f.submit "編集完了", class: "post-submit"

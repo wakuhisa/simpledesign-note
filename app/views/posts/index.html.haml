@@ -32,21 +32,20 @@
           = image_tag "sample-1.jpg"
         .top__section__main__heading__content
           .top__section__main__heading__content__wrap
+          - @post.each do |post|
             .top__section__main__heading__content__wrap__data
-              2020.05.13 TUE
+              = post.updated_at.strftime("%Y.%m.%d (%^a)")
             .top__section__main__heading__content__wrap__title
-              実務で使えるRuby on Rails<br>
-              モダン設計TIPS
+              = post.title.truncate(30)
             .top__section__main__heading__content__wrap__text
-              Webエンジニアの変化の勢いは留まるところを知りません。<br>
-              新しい知識やツールが増え...
+              = post.text.truncate(70)
       .top__section__main__log
         .top__section__main__log__title
           NEWS
-        - @posts.each do |post|
+        - @post_news.each do |post|
           .top__section__main__log__section
             .top__section__main__log__section__data
-              = post.created_at.strftime("%Y.%m.%d")
+              = post.created_at.strftime("%Y.%m.%d (%^a)")
             .top__section__main__log__section__tag
               Rails
             .top__section__main__log__section__comment
@@ -54,43 +53,19 @@
       .top__section__main__article
         - @posts.each do |post|
           .top__section__main__article__content
+            = link_to "詳細", post_path(post), class: "show-button"
             .top__section__main__article__content__image
               = image_tag "sample-2.jpg"
             .top__section__main__article__content__title
-              = post.title
+              = post.title.truncate(30)
             .top__section__main__article__content__text
-              = post.text
+              = post.text.truncate(35)
             .top__section__main__article__content__data
               = post.created_at.strftime("%Y.%m.%d")
             .top__section__main__article__content__edit
-              = link_to "編集", edit_post_path(post)
-        -# .top__section__main__article__content
-        -#   .top__section__main__article__content__image
-        -#     = image_tag "sample-2.jpg"
-        -#   .top__section__main__article__content__title
-        -#     実務で使えるRuby on Rails モダン設計TIPS
-        -#   .top__section__main__article__content__text
-        -#     Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
-        -#   .top__section__main__article__content__data
-        -#     2020.05.15 FRI
-        -# .top__section__main__article__content
-        -#   .top__section__main__article__content__image
-        -#     = image_tag "sample-2.jpg"
-        -#   .top__section__main__article__content__title
-        -#     実務で使えるRuby on Rails モダン設計TIPS
-        -#   .top__section__main__article__content__text
-        -#     Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
-        -#   .top__section__main__article__content__data
-        -#     2020.05.15 FRI
-        -# .top__section__main__article__content
-        -#   .top__section__main__article__content__image
-        -#     = image_tag "sample-2.jpg"
-        -#   .top__section__main__article__content__title
-        -#     実務で使えるRuby on Rails モダン設計TIPS
-        -#   .top__section__main__article__content__text
-        -#     Webエンジニアの変化の勢いは留まるところを知りません。新しい知識やツールが増え...
-        -#   .top__section__main__article__content__data
-        -#     2020.05.15 FRI
+              - if user_signed_in?
+                = link_to "編集", edit_post_path(post), class: "edit-button"
+                = link_to "削除", post, method: :delete, data: { confirm: "#{post.title}を削除してもよろしいですか？" }, class: "delete-button"
     .top__section__side
       .top__section__side__rank
         .top__section__side__rank__title
