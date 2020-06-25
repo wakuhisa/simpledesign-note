@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.order(updated_at: :desc).limit(1)
-    @post_news = Post.order(created_at: :desc).limit(5)
-    @posts = Post.all.order(created_at: :desc)
+    # @post = Post.order(updated_at: :desc).limit(1)
+    # @post_news = Post.order(created_at: :desc).limit(5)
+    @posts = Post.all.order(created_at: :desc).limit(3)
   end
 
   def new

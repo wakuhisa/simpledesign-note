@@ -1,164 +1,98 @@
-.top
-  .top__header
-    .top__header__logo
-      %h1.top__header__logo__content
-        = link_to "Sakusaku", root_path
-    - if user_signed_in?
-      .top__header__signOut
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
-      .top__header__newPost
-        = link_to "投稿", new_post_path
-    - else
-      .top__header__signIn
-        = link_to "ログイン", new_user_session_path, class: 'post'
-      .top__header__signUp
-        = link_to "新規登録", new_user_registration_path, class: 'post'
-    .top__header__nav
-      %ul.top__header__nav__menu
-        %li.top__header__nav__menu__list
-          = link_to "Home", "#", class: 'bg-red'
-        %li.top__header__nav__menu__list
-          = link_to "About", "#"
-        %li.top__header__nav__menu__list
-          = link_to "News", "#"
-        %li.top__header__nav__menu__list
-          = link_to "Topics", "#"
-        %li.top__header__nav__menu__list
-          = link_to "Blog", "#"
-  .top__section
-    .top__section__main
-      .top__section__main__heading
-        .top__section__main__heading__image
-          = image_tag "sample-1.jpg"
-        .top__section__main__heading__content
-          .top__section__main__heading__content__wrap
-          - @post.each do |post|
-            .top__section__main__heading__content__wrap__data
-              = post.updated_at.strftime("%Y.%m.%d (%^a)")
-            .top__section__main__heading__content__wrap__title
-              = post.title.truncate(30)
-            .top__section__main__heading__content__wrap__text
-              = post.text.truncate(70)
-      .top__section__main__log
-        .top__section__main__log__title
-          NEWS
-        - @post_news.each do |post|
-          .top__section__main__log__section
-            .top__section__main__log__section__data
-              = post.created_at.strftime("%Y.%m.%d (%^a)")
-            .top__section__main__log__section__tag
-              Rails
-            .top__section__main__log__section__comment
-              = post.title
-      .top__section__main__article
+.wrapper#wrapper
+  .home_header
+    %ul.home_header__global_menu
+      %li.home_header__global_menu__menu_item
+        -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
+        = link_to "Archives", ""
+      %li.home_header__global_menu__menu_item
+        = link_to "Login", new_user_session_path
+      %li.home_header__global_menu__menu_item
+        = link_to "Post", new_post_path
+  .home_content
+    .home_content__left_inner
+      .home_content__left_inner__module_block
+        %h1.home_content__left_inner__module_block__title_logo
+          Basic Design Note
+        .home_content__left_inner__module_block__sub_title
+          “デザインの基本”を学び直すブログ
+    .home_content__right_inner
+      .home_content__right_inner__wrap
         - @posts.each do |post|
-          .top__section__main__article__content
-            = link_to "詳細", post_path(post), class: "show-button"
-            .top__section__main__article__content__image
-              = image_tag "sample-2.jpg"
-            .top__section__main__article__content__title
-              = post.title.truncate(30)
-            .top__section__main__article__content__text
-              = post.text.truncate(35)
-            .top__section__main__article__content__data
-              = post.created_at.strftime("%Y.%m.%d")
-            .top__section__main__article__content__edit
-              - if user_signed_in?
-                = link_to "編集", edit_post_path(post), class: "edit-button"
-                = link_to "削除", post, method: :delete, data: { confirm: "#{post.title}を削除してもよろしいですか？" }, class: "delete-button"
-    .top__section__side
-      .top__section__side__rank
-        .top__section__side__rank__title
-          RANKING
-        .top__section__side__rank__wrap
-          .top__section__side__rank__wrap__image
-            = image_tag "sample-3.jpg"
-            .top__section__side__rank__wrap__image__number.bg-gold
-              1
-          .top__section__side__rank__wrap__text
-            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
-        .top__section__side__rank__wrap
-          .top__section__side__rank__wrap__image
-            = image_tag "sample-3.jpg"
-            .top__section__side__rank__wrap__image__number.bg-cilver
-              2
-          .top__section__side__rank__wrap__text
-            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
-        .top__section__side__rank__wrap
-          .top__section__side__rank__wrap__image
-            = image_tag "sample-3.jpg"
-            .top__section__side__rank__wrap__image__number.bg-copper
-              3
-          .top__section__side__rank__wrap__text
-            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
-        .top__section__side__rank__wrap
-          .top__section__side__rank__wrap__image
-            = image_tag "sample-3.jpg"
-            .top__section__side__rank__wrap__image__number
-              4
-          .top__section__side__rank__wrap__text
-            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
-        .top__section__side__rank__wrap
-          .top__section__side__rank__wrap__image
-            = image_tag "sample-3.jpg"
-            .top__section__side__rank__wrap__image__number
-              5
-          .top__section__side__rank__wrap__text
-            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
-        .top__section__side__rank__wrap
-          .top__section__side__rank__wrap__image
-            = image_tag "sample-3.jpg"
-            .top__section__side__rank__wrap__image__number
-              6
-          .top__section__side__rank__wrap__text
-            HTML/CSSコーディングと切っても切れないWebブラウザのシェア動向をチェックしよう。
-      .top__section__side__document
-        .top__section__side__document__head
-          DOCUMENTS
-        .top__section__side__document__title
-          HTML
-        %ul.top__section__side__document__item
-          %li.top__section__side__document__item__list
-            = link_to "追加された要素", "#"
-          %li.top__section__side__document__item__list
-            = link_to "削除された要素", "#"
-          %li.top__section__side__document__item__list
-            = link_to "意味が変わった要素", "#"
-          %li.top__section__side__document__item__list
-            = link_to "HTML5のコンテンツモデル", "#"
-        .top__section__side__document__title
-          CSS
-        %ul.top__section__side__document__item
-          %li.top__section__side__document__item__list
-            = link_to "追加されたプロパティ", "#"
-          %li.top__section__side__document__item__list
-            = link_to "削除されたセレクタ", "#"
-          %li.top__section__side__document__item__list
-            = link_to "追加された単位", "#"
-        .top__section__side__document__title
-          Ruby on Rails
-        %ul.top__section__side__document__item
-          %li.top__section__side__document__item__list
-            = link_to "Rubyとは？", "#"
-          %li.top__section__side__document__item__list
-            = link_to "Railsとは？", "#"
-          %li.top__section__side__document__item__list
-            = link_to "MVCモデルの仕組み", "#"
-      .top__section__side__search
-        %form{action: "/", method: "post"}
-          %input{type: "search", name: "search", class: "search", placeholder: "SEARCH", size: "25"}
-          %input{type: "submit", class: "submit"}
-          .top__section__side__search__comment
-            サイト内の文章を検索できます。
-  .top__footer
-    %ul.top__footer__menu
-      %li.top__footer__menu__list
-        = link_to "ABOUT ME", "#"
-      %li.top__footer__menu__list
-        = link_to "SITE MAP", "#"
-      %li.top__footer__menu__list
-        = link_to "SNS", "#"
-      %li.top__footer__menu__list
-        = link_to "CONTACT", "#"
-    .top__footer__copyright
-      © 2020 sakusaku
+          .home_content__right_inner__wrap__article_block
+            = link_to edit_post_path(post) do
+              .home_content__right_inner__wrap__article_block__post_image
+                = image_tag "sample-1.jpg", width: "100%"
+              .home_content__right_inner__wrap__article_block__post_title
+                = post.title
+              .home_content__right_inner__wrap__article_block__post_data
+                Posted 
+                = post.created_at.strftime("%Y/%m/%d")
+      .home_content__right_inner__module_block
+        -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
+        = link_to "" do
+          .home_content__right_inner__module_block__btn_block
+            Archives →
+  .home_footer
+    = link_to "#wrapper", { anchor: "wrapper" } do
+      .home_footer__top_btn
+    .home_footer__footer_title
+      = link_to "Basic Design Note", root_path
+    %ul.home_footer__local_menu
+      %li.home_footer__local_menu__menu_item
+        -# -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
+        = link_to "Archives", ""
+      %li.home_footer__local_menu__menu_item
+        = link_to "Login", new_user_session_path
+      %li.home_footer__local_menu__menu_item
+        = link_to "Post", new_post_path
+    .home_footer__copyright
+      © 2020 Basic Design Note All Rights Reserved.
+
+
+-# .top
+-#   .top__header
+-#     .top__header__logo
+-#       %h1.top__header__logo__content
+-#         = link_to "Sakusaku", root_path
+-#     - if user_signed_in?
+-#       .top__header__signOut
+-#         = link_to "ログアウト", destroy_user_session_path, method: :delete
+-#       .top__header__newPost
+-#         = link_to "投稿", new_post_path
+-#     - else
+-#       .top__header__signIn
+-#         = link_to "ログイン", new_user_session_path, class: 'post'
+-#       .top__header__signUp
+-#         = link_to "新規登録", new_user_registration_path, class: 'post'
+-#   .top__section
+-#     .top__section__main
+-#       .top__section__main__article
+-#         - @posts.each do |post|
+-#           .top__section__main__article__content
+-#             = link_to "詳細", post_path(post), class: "show-button"
+-#             .top__section__main__article__content__image
+-#               = image_tag "sample-2.jpg"
+-#             .top__section__main__article__content__title
+-#               = post.title.truncate(30)
+-#             .top__section__main__article__content__text
+-#               = post.text.truncate(35)
+-#             .top__section__main__article__content__data
+-#               = post.created_at.strftime("%Y.%m.%d")
+-#             .top__section__main__article__content__edit
+-#               - if user_signed_in?
+-#                 = link_to "編集", edit_post_path(post), class: "edit-button"
+-#                 = link_to "削除", post, method: :delete, data: { confirm: "#{post.title}を削除してもよろしいですか？" }, class: "delete-button"
+-#     .top__section__side
+
+-#   .top__footer
+-#     %ul.top__footer__menu
+-#       %li.top__footer__menu__list
+-#         = link_to "ABOUT ME", "#"
+-#       %li.top__footer__menu__list
+-#         = link_to "SITE MAP", "#"
+-#       %li.top__footer__menu__list
+-#         = link_to "SNS", "#"
+-#       %li.top__footer__menu__list
+-#         = link_to "CONTACT", "#"
+-#     .top__footer__copyright
+-#       © 2020 sakusaku

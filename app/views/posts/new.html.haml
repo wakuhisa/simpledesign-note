@@ -1,15 +1,27 @@
-.post-form
-  %h3.post-form__title
-    = link_to "新規投稿", root_path
-  = form_with(model: @post, local: true) do |f|
-    .post-form__field
-      画像
-      = f.text_field :image, placeholder: "URL", class: "image-field"
-    .post-form__field
-      記事タイトル
-      = f.text_field :title, placeholder: "タイトル", class: "title-field"
-    .post-form__field
-      テキスト
-      = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text-field"
-    .post-form__action
-      = f.submit "投稿", class: "post-submit"
+.wrapper#wrapper
+  .home_header
+    %ul.home_header__global_menu
+      .home_header__global_menu__block
+        %li.home_header__global_menu__block__menu_item
+          -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
+          = link_to "Archives", ""
+        %li.home_header__global_menu__block__menu_item
+          = link_to "Login", new_user_session_path
+        %li.home_header__global_menu__block__menu_item
+          = link_to "Post", new_post_path
+  .home_content
+    .home_content__left_inner
+      %h3.post-form__title
+        = link_to "新規投稿", root_path
+      = form_with(model: @post, local: true) do |f|
+        .post-form__field
+          画像
+          = f.text_field :image, placeholder: "URL", class: "image-field"
+        .post-form__field
+          記事タイトル
+          = f.text_field :title, placeholder: "タイトル", class: "title-field"
+        .post-form__field
+          テキスト
+          = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text-field"
+        .post-form__action
+          = f.submit "投稿", class: "post-submit"
