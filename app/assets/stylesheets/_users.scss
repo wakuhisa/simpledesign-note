@@ -1,4 +1,4 @@
-.login_content {
+.login_content, .signup_content {
   // padding: 132px 0 0;
   &__left_inner {
     width: 480px;
@@ -15,9 +15,9 @@
         padding: 30px;
         border: $black 1px solid;
         border-radius: 5px;
-        &__mail_field {
+        &__mail_field, &__nickname_field {
           margin: 24px auto 8px;
-          .email-box {
+          .email-box, .nickname-box {
             width: 100%;
             line-height: 1.8;
             margin: 5px 0 0;
@@ -38,18 +38,21 @@
             border: $gray 1px solid;
             border-radius: 5px;
           }
+          .length, .confirm {
+            margin: 5px 0 0;
+          }
         }
         &__submit {
           margin: 40px 0 0;
           padding: 0 0 36px;
           text-align: center;
-          .login-button {
+          .login-button, .signup-button {
             padding: 8px 40px;
             color: $white;
             font-size: 13.5px;
             border: none;
             border-radius: 5px;
-            background-color: #FA8072;
+            background-color: $salmon;
             display: inline-block;
             transition: all .5s ease;
             cursor: pointer;

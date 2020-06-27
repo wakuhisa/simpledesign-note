@@ -25,7 +25,7 @@
         display: block;
         transition: all .5s ease;
         &:hover {
-          color: #FA8072;
+          color: $salmon;
           // background: -moz-linear-gradient(to right,#FF8C69 0%,#FAA569 40%,#FF6991 100%);
           // background: -webkit-linear-gradient(to right,#FF8C69 0%,#FAA569 40%,#FF6991 100%);
           // background: linear-gradient(to right,#FF8C69 0%,#FAA569 40%,#FF6991 100%);
@@ -102,7 +102,7 @@
           font-size: 16px;
           transition: all .5s ease;
           &:hover {
-            color: #FA8072;
+            color: $salmon;
           }
         }
         &__post_data {
@@ -120,18 +120,18 @@
         margin: 64px 0 0;
         padding: 8px 40px;
         font-size: 13.5px;
-        border: #FA8072 1px solid;
+        border: $salmon 1px solid;
         border-radius: 48px;
         display: inline-block;
         transition: all .5s ease;
         position: relative;
         &:hover {
-          color: white;
-          background-color: #FA8072;
+          color: $white;
+          background-color: $salmon;
         }
       }
       a {
-        color: #FA8072;
+        color: $salmon;
       }
     }
   }
@@ -158,8 +158,8 @@
       transform: translate(-50%,-10%) rotate(-45deg);
     }
     &:hover {
-      border-top: white;
-      background-color: #FA8072;
+      border-top: $white;
+      background-color: $salmon;
       &:after {
         border-color: $white;
       }
@@ -193,7 +193,7 @@
         display: inline-block;
         transition: all .5s ease;
         &:hover {
-          color: #FA8072;
+          color: $salmon;
         }
         &:after {
           content: '';

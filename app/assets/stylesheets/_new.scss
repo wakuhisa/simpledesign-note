@@ -31,7 +31,7 @@
           display: block;
           transition: all .5s ease;
           &:hover {
-            color: #FA8072;
+            color: $salmon;
           }
           &:after {
             content: '';
@@ -120,7 +120,7 @@
             font-size: 18px;
             border: none;
             border-radius: 5px;
-            background-color: #FA8072;
+            background-color: $salmon;
             display: inline-block;
             transition: all .5s ease;
             cursor: pointer;
