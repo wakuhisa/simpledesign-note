@@ -7,10 +7,16 @@
         %li.global_header__global_menu__block__menu_item
           -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
           = link_to "Archives", ""
-        %li.global_header__global_menu__block__menu_item
-          = link_to "Login", new_user_session_path
-        %li.global_header__global_menu__block__menu_item
-          = link_to "Post", new_post_path
+        - if user_signed_in?
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Logout", destroy_user_session_path, method: :delete
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Post", new_post_path
+        - else
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Login", new_user_session_path
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Signup", new_user_registration_path, class: 'post'
   .login_content
     .login_content__left_inner
       .login_content__left_inner__block

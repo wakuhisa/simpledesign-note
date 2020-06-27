@@ -7,10 +7,16 @@
         %li.global_header__global_menu__block__menu_item
           -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
           = link_to "Archives", ""
-        %li.global_header__global_menu__block__menu_item
-          = link_to "Login", new_user_session_path
-        %li.global_header__global_menu__block__menu_item
-          = link_to "Post", new_post_path
+        - if user_signed_in?
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Logout", destroy_user_session_path, method: :delete
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Post", new_post_path
+        - else
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Login", new_user_session_path
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Signup", new_user_registration_path, class: 'post'
   .post_content
     .post_content__left_inner
       .post_content__left_inner__block
@@ -20,7 +26,7 @@
           = form_with(model: @post, local: true) do |f|
             .post_content__left_inner__block__form_wrap__image_field
               -# 画像
-              = f.text_field :image, placeholder: "URL", class: "image_box"
+              = f.text_field :image, placeholder: "画像URL", class: "image_box"
             .post_content__left_inner__block__form_wrap__title_field
               -# 記事タイトル
               = f.text_field :title, placeholder: "タイトル", class: "title_box"
@@ -28,7 +34,7 @@
               -# テキスト
               = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text_box", cols: "40", rows: "10"
             .post_content__left_inner__block__form_wrap__submit
-              = f.submit "投稿　→", class: "post_submit"
+              = f.submit "投稿", class: "post_submit"
 
 
       -# = form_with(model: @post, local: true) do |f|
