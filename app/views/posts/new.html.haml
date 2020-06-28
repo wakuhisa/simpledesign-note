@@ -20,8 +20,8 @@
   .post_content
     .post_content__left_inner
       .post_content__left_inner__block
-        %h2.post_content__left_inner__block__page_title
-          新規投稿
+        -# %h2.post_content__left_inner__block__page_title
+        -#   新規投稿
         .post_content__left_inner__block__form_wrap
           = form_with(model: @post, local: true) do |f|
             .post_content__left_inner__block__form_wrap__image_field

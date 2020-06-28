@@ -1,15 +1,51 @@
-.post-form
-  %h3.post-form__title
-    = link_to "編集", root_path
-  = form_with model: @post, url: { action: :update }, local: true do |f|
-    .post-form__field
-      画像
-      = f.text_field :image, placeholder: "URL", class: "image-field"
-    .post-form__field
-      記事タイトル
-      = f.text_field :title, placeholder: "タイトル", class: "title-field"
-    .post-form__field
-      テキスト
-      = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text-field"
-    .post-form__action
-      = f.submit "編集完了", class: "post-submit"
+.wrapper#wrapper
+  .global_header
+    %ul.global_header__global_menu
+      %h1.global_header__global_menu__site_logo
+        = link_to "Basic Design Note", root_path
+      .global_header__global_menu__block
+        %li.global_header__global_menu__block__menu_item
+          -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
+          = link_to "Archives", ""
+        - if user_signed_in?
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Logout", destroy_user_session_path, method: :delete
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Post", new_post_path
+        - else
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Login", new_user_session_path
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Signup", new_user_registration_path, class: 'post'
+  .edit_content
+    .edit_content__left_inner
+      .edit_content__left_inner__block
+        -# %h2.edit_content__left_inner__block__page_title
+        -#   編集
+        .edit_content__left_inner__block__form_wrap
+          = form_with model: @post, url: { action: :update }, local: true do |f|
+            .edit_content__left_inner__block__form_wrap__image_field
+              = f.text_field :image, placeholder: "URL", class: "image_box"
+            .edit_content__left_inner__block__form_wrap__title_field
+              = f.text_field :title, placeholder: "タイトル", class: "title_box"
+            .edit_content__left_inner__block__form_wrap__text_field
+              = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text_box", cols: "40", rows: "10"
+            .edit_content__left_inner__block__form_wrap__submit
+              = f.submit "編集完了", class: "edit_submit"
+
+
+-# .post-form
+-#   %h3.post-form__title
+-#     = link_to "編集", root_path
+-#   = form_with model: @post, url: { action: :update }, local: true do |f|
+-#     .post-form__field
+-#       画像
+-#       = f.text_field :image, placeholder: "URL", class: "image-field"
+-#     .post-form__field
+-#       記事タイトル
+-#       = f.text_field :title, placeholder: "タイトル", class: "title-field"
+-#     .post-form__field
+-#       テキスト
+-#       = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text-field"
+-#     .post-form__action
+-#       = f.submit "編集完了", class: "post-submit"

@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     if @post.update_attributes(post_params)
-      redirect_to root_path
+      redirect_to post_path
     else
       render action: :edit
     end

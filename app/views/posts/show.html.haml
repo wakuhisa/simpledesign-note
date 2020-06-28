@@ -30,14 +30,12 @@
           = image_tag "sample-1.jpg", width: "100%"
         .show_content__left_inner__post_wrap__post_text
           = @post.text
-      .show_content__left_inner__edit_delete_button
-        .show_content__left_inner__edit_delete_button__text_submit
-          編集
-        .show_content__left_inner__edit_delete_button__text_submit
-          削除
-        - if user_signed_in?
-          -# = link_to "編集", edit_post_path(post), class: "edit-button"
-          -# = link_to "削除", post, method: :delete, data: { confirm: "#{post.title}を削除してもよろしいですか？" }, class: "delete-button"
+        .show_content__left_inner__edit_delete_button
+          - if user_signed_in?
+            .show_content__left_inner__edit_delete_button__submit
+              = link_to "", edit_post_path(@post), class: "edit-button fas fa-edit"
+            .show_content__left_inner__edit_delete_button__submit
+              = link_to "", @post, method: :delete, data: { confirm: "#{@post.title}を削除してもよろしいですか？" }, class: "delete-button fas fa-trash-alt"
   .home_footer
     = link_to "#wrapper", { anchor: "wrapper" } do
       .home_footer__top_btn
