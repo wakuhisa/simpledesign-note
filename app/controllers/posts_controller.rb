@@ -41,6 +41,10 @@ class PostsController < ApplicationController
     redirect_to :root
   end
 
+  def archives
+    @posts = Post.all.order(created_at: :desc)
+  end
+
   private
   def post_params
     params.require(:post).permit(:text, :title, :image)

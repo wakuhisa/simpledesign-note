@@ -5,8 +5,7 @@
         = link_to "Basic Design Note", root_path
       .global_header__global_menu__block
         %li.global_header__global_menu__block__menu_item
-          -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
-          = link_to "Archives", ""
+          = link_to "Archives", archives_posts_path
         - if user_signed_in?
           %li.global_header__global_menu__block__menu_item
             = link_to "Logout", destroy_user_session_path, method: :delete

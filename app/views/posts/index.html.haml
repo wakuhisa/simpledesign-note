@@ -2,8 +2,7 @@
   .home_header
     %ul.home_header__global_menu
       %li.home_header__global_menu__menu_item
-        -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
-        = link_to "Archives", ""
+        = link_to "Archives", archives_posts_path
       - if user_signed_in?
         .home_header__global_menu__menu_item
           = link_to "Logout", destroy_user_session_path, method: :delete
@@ -34,8 +33,7 @@
                 Posted 
                 = post.created_at.strftime("%Y/%m/%d")
       .home_content__right_inner__module_block
-        -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
-        = link_to "" do
+        = link_to archives_posts_path do
           .home_content__right_inner__module_block__btn_block
             Archives　→
   .home_footer
@@ -45,8 +43,7 @@
       = link_to "Basic Design Note", root_path
     %ul.home_footer__local_menu
       %li.home_footer__local_menu__menu_item
-        -# -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
-        = link_to "Archives", ""
+        = link_to "Archives", archives_posts_path
       - if user_signed_in?
         %li.home_footer__local_menu__menu_item
           = link_to "Logout", destroy_user_session_path, method: :delete

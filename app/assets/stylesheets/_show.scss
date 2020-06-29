@@ -45,11 +45,11 @@
 
         position: relative; //追加
         margin: 0 0 0 12px; //追加
-        a {
+        .edit_button, .delete_button {
           // color: #1162F5;
           font-size: 16px;
 
-          color: $black; //追加
+          color: $salmon; //追加
         }
         // &:after {
         //   content: "";

@@ -5,8 +5,7 @@
         = link_to "Basic Design Note", root_path
       .global_header__global_menu__block
         %li.global_header__global_menu__block__menu_item
-          -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
-          = link_to "Archives", ""
+          = link_to "Archives", archives_posts_path
         - if user_signed_in?
           %li.global_header__global_menu__block__menu_item
             = link_to "Logout", destroy_user_session_path, method: :delete
@@ -33,9 +32,9 @@
         .show_content__left_inner__edit_delete_button
           - if user_signed_in?
             .show_content__left_inner__edit_delete_button__submit
-              = link_to "", edit_post_path(@post), class: "edit-button fas fa-edit"
+              = link_to "", edit_post_path(@post), class: "edit_button fas fa-edit"
             .show_content__left_inner__edit_delete_button__submit
-              = link_to "", @post, method: :delete, data: { confirm: "#{@post.title}を削除してもよろしいですか？" }, class: "delete-button fas fa-trash-alt"
+              = link_to "", @post, method: :delete, data: { confirm: "#{@post.title}を削除してもよろしいですか？" }, class: "delete_button fas fa-trash-alt"
   .home_footer
     = link_to "#wrapper", { anchor: "wrapper" } do
       .home_footer__top_btn
@@ -43,8 +42,7 @@
       = link_to "Basic Design Note", root_path
     %ul.home_footer__local_menu
       %li.home_footer__local_menu__menu_item
-        -# -# ******* 一覧ページへ飛ぶようにファイルを作成する *******
-        = link_to "Archives", ""
+        = link_to "Archives", archives_posts_path
       - if user_signed_in?
         %li.home_footer__local_menu__menu_item
           = link_to "Logout", destroy_user_session_path, method: :delete
