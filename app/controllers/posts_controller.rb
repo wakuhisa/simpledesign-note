@@ -24,6 +24,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by(id: params[:id])
+    @post.image.cache! unless @post.image.blank?
   end
 
   def update
@@ -42,11 +43,11 @@ class PostsController < ApplicationController
   end
 
   def archives
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(9)
   end
 
   private
   def post_params
-    params.require(:post).permit(:text, :title, :image)
+    params.require(:post).permit(:text, :title, :image, :image_cache)
   end
 end

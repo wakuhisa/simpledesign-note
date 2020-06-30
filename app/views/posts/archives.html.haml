@@ -27,7 +27,10 @@
           .archives_content__right_inner__wrap__article_block
             = link_to post_path(post) do
               .archives_content__right_inner__wrap__article_block__post_image
-                = image_tag "sample-1.jpg", width: "100%"
+                - if post.image?
+                  = image_tag post.image.url, width: "100%"
+                - else
+                  = image_tag "sample-1.jpg", width: "100%"
               .archives_content__right_inner__wrap__article_block__post_title
                 = post.title
               .archives_content__right_inner__wrap__article_block__post_data
@@ -39,7 +42,7 @@
       -#       Archives　→
       .archives_content__right_inner__page_nation
         .archives_content__right_inner__page_nation__submit
-          1
+          = paginate @posts
   .archives_footer
     = link_to "#wrapper", { anchor: "wrapper" } do
       .archives_footer__top_btn

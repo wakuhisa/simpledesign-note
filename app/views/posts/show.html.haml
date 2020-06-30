@@ -25,8 +25,10 @@
           Posted
           = @post.created_at.strftime("%Y/%m/%d")
         .show_content__left_inner__post_wrap__post_image
-          = @post.image
-          = image_tag "sample-1.jpg", width: "100%"
+          - if @post.image?
+            = image_tag @post.image.url, width: "100%"
+          - else
+            = image_tag "sample-1.jpg", width: "100%"
         .show_content__left_inner__post_wrap__post_text
           = @post.text
         .show_content__left_inner__edit_delete_button

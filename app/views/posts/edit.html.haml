@@ -25,6 +25,11 @@
           = form_with model: @post, url: { action: :update }, local: true do |f|
             .edit_content__left_inner__block__form_wrap__image_field
               = f.text_field :image, placeholder: "URL", class: "image_box"
+              .form_mask
+                %label.label
+                  = icon('fa','images', class: 'icon')
+                  = f.file_field :image, class: "hidden"
+                  = f.hidden_field :image_cache
             .edit_content__left_inner__block__form_wrap__title_field
               = f.text_field :title, placeholder: "タイトル", class: "title_box"
             .edit_content__left_inner__block__form_wrap__text_field

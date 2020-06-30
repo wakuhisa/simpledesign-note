@@ -95,6 +95,8 @@
         &__post_image {
           max-width: 100%;
           height: auto;
+          
+          overflow: hidden; //追加
         }
         &__post_title {
           margin: 5px 0 0;

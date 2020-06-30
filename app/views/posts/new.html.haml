@@ -26,6 +26,10 @@
             .post_content__left_inner__block__form_wrap__image_field
               -# 画像
               = f.text_field :image, placeholder: "画像URL", class: "image_box"
+              .form_mask
+                %label.label
+                  = icon('fa','images', class: 'icon')
+                  = f.file_field :image, class: "hidden"
             .post_content__left_inner__block__form_wrap__title_field
               -# 記事タイトル
               = f.text_field :title, placeholder: "タイトル", class: "title_box"
