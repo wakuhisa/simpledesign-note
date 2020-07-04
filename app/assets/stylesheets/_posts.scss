@@ -97,20 +97,24 @@
           height: auto;
           
           overflow: hidden; //追加
+          transition: all .5s ease; //追加
         }
         &__post_title {
           margin: 5px 0 0;
           color: $black;
           font-size: 16px;
           transition: all .5s ease;
-          &:hover {
-            color: $salmon;
-          }
         }
         &__post_data {
           margin: 7px 0 0;
           color: #555;
           font-size: 12px;
+        }
+        &:hover &__post_title {
+          color: $salmon;
+        }
+        &:hover &__post_image {
+          transform: scale(0.97, 0.97);
         }
       }
     }
