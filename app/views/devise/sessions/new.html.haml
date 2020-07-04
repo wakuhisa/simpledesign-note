@@ -1,17 +1,55 @@
-.wrapper
-  %h1.logo
-    = link_to "Sakusaku", root_path
-  .wrap
-    %h2.wrap__title ログイン
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "email-box"
-      .field
-        = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "pass-box"
-      - if devise_mapping.rememberable?
-        .field.remember-area
-          = f.check_box :remember_me
-          = f.label :remember_me, class: "remember-text"
-      .actions
-        = f.submit "ログイン", class: "login-button"
-    -# = render "devise/shared/links"
+.wrapper#wrapper
+  .global_header
+    %ul.global_header__global_menu
+      %h1.global_header__global_menu__site_logo
+        = link_to "Basic Design Note", root_path
+      .global_header__global_menu__block
+        %li.global_header__global_menu__block__menu_item
+          = link_to "Archives", archives_posts_path
+        - if user_signed_in?
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Logout", destroy_user_session_path, method: :delete
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Post", new_post_path
+        - else
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Login", new_user_session_path
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Signup", new_user_registration_path, class: 'post'
+  .login_content
+    .login_content__left_inner
+      .login_content__left_inner__block
+        %h2.login_content__left_inner__block__page_title
+          ログイン
+        .login_content__left_inner__block__form_wrap
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .login_content__left_inner__block__form_wrap__mail_field
+              メールアドレス
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "test@test", class: "email-box"
+            .login_content__left_inner__block__form_wrap__pass_field
+              パスワード
+              = f.password_field :password, autocomplete: "current-password", placeholder: "testtest", class: "pass-box"
+              - if devise_mapping.rememberable?
+                .field.remember-area
+                  = f.check_box :remember_me
+                  = f.label :remember_me, class: "remember-text"
+            .login_content__left_inner__block__form_wrap__submit
+              = f.submit "ログイン", class: "login-button"
+
+-# .wrapper
+-#   %h1.logo
+-#     = link_to "Sakusaku", root_path
+-#   .wrap
+-#     %h2.wrap__title ログイン
+-#     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#       .field
+-#         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "email-box"
+-#       .field
+-#         = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "pass-box"
+-#       - if devise_mapping.rememberable?
+-#         .field.remember-area
+-#           = f.check_box :remember_me
+-#           = f.label :remember_me, class: "remember-text"
+-#       .actions
+-#         = f.submit "ログイン", class: "login-button"
+-#     -# = render "devise/shared/links"

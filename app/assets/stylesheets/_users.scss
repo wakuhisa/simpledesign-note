@@ -1,85 +1,153 @@
-.wrapper {
-  background-color: #f7f9f9;
-}
-
-.logo {
-  padding: 30px 0;
-  text-align: center;
-  a {
-    color: black;
+.login_content, .signup_content {
+  // padding: 132px 0 0;
+  &__left_inner {
+    width: 480px;
+    margin: 54px auto 0;
+    &__block {
+      margin: 42px 0 0;
+      &__page_title {
+        font-weight: normal;
+        text-align: center;
+      }
+      &__form_wrap {
+        width: 85%;
+        margin: 32px auto;
+        padding: 30px;
+        border: $black 1px solid;
+        border-radius: 5px;
+        &__mail_field, &__nickname_field {
+          margin: 24px auto 8px;
+          .email-box, .nickname-box {
+            width: 100%;
+            line-height: 1.8;
+            margin: 5px 0 0;
+            padding: 10px;
+            font-size: 1em;
+            border: $gray 1px solid;
+            border-radius: 5px;
+          }
+        }
+        &__pass_field {
+          margin: 24px auto 8px;
+          .pass-box {
+            width: 100%;
+            line-height: 1.8;
+            margin: 5px 0 0;
+            padding: 10px;
+            font-size: 1em;
+            border: $gray 1px solid;
+            border-radius: 5px;
+          }
+          .length, .confirm {
+            margin: 5px 0 0;
+          }
+        }
+        &__submit {
+          margin: 40px 0 0;
+          padding: 0 0 36px;
+          text-align: center;
+          .login-button, .signup-button {
+            padding: 8px 40px;
+            color: $white;
+            font-size: 13.5px;
+            border: none;
+            border-radius: 5px;
+            background-color: $salmon;
+            display: inline-block;
+            transition: all .5s ease;
+            cursor: pointer;
+          }
+        }
+        .remember-area {
+          margin: 40px 0 0;
+        }
+      }
+    }
   }
 }
 
-.wrap {
-  width: 320px;
-  margin: 0 auto;
-  padding: 40px 5px;
-  text-align: center;
-  background-color: white;
-  &__title {
-    padding-bottom: 10px;
-  }
-}
+// .wrapper {
+//   background-color: #f7f9f9;
+// }
 
-.nickname-box {
-  width: 300px;
-  height: 35px;
-  margin: 10px 0 0;
-  padding: 5px 10px;
-  border: lightgray 1px solid;
-  border-radius: 5px;
-}
+// .logo {
+//   padding: 30px 0;
+//   text-align: center;
+//   a {
+//     color: black;
+//   }
+// }
 
-.email-box {
-  width: 300px;
-  height: 35px;
-  margin: 10px 0;
-  padding: 5px 10px;
-  border: lightgray 1px solid;
-  border-radius: 5px;
-}
+// .wrap {
+//   width: 320px;
+//   margin: 0 auto;
+//   padding: 40px 5px;
+//   text-align: center;
+//   background-color: white;
+//   &__title {
+//     padding-bottom: 10px;
+//   }
+// }
 
-.pass-box {
-  width: 300px;
-  height: 35px;
-  margin-bottom: 5px;
-  padding: 5px 10px;
-  border: lightgray 1px solid;
-  border-radius: 5px;
-}
+// .nickname-box {
+//   width: 300px;
+//   height: 35px;
+//   margin: 10px 0 0;
+//   padding: 5px 10px;
+//   border: lightgray 1px solid;
+//   border-radius: 5px;
+// }
 
-.remember-area {
-  margin: 2px 0 20px 10px;
-  text-align: left;
-  font-size: 13px;
-}
+// .email-box {
+//   width: 300px;
+//   height: 35px;
+//   margin: 10px 0;
+//   padding: 5px 10px;
+//   border: lightgray 1px solid;
+//   border-radius: 5px;
+// }
 
-.remember-text {
-  color: gray;
-}
+// .pass-box {
+//   width: 300px;
+//   height: 35px;
+//   margin-bottom: 5px;
+//   padding: 5px 10px;
+//   border: lightgray 1px solid;
+//   border-radius: 5px;
+// }
 
-.login-button {
-  width: 150px;
-  height: 35px;
-  margin-bottom: 10px;
-  color: white;
-  background-color: salmon;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+// .remember-area {
+//   margin: 2px 0 20px 10px;
+//   text-align: left;
+//   font-size: 13px;
+// }
+
+// .remember-text {
+//   color: gray;
+// }
+
+// .login-button {
+//   width: 150px;
+//   height: 35px;
+//   margin-bottom: 10px;
+//   color: white;
+//   background-color: salmon;
+//   border: none;
+//   border-radius: 5px;
+//   cursor: pointer;
+// }
 
 
-.length {
-  margin: 0 0 5px 10px;
-  color: gray;
-  font-size: 13px;
-  text-align: left;
-}
+// .length {
+//   margin: 0 0 5px 10px;
+//   color: gray;
+//   font-size: 13px;
+//   text-align: left;
+// }
 
-.confirm {
-  margin: 0 0 20px 10px;
-  color: gray;
-  font-size: 13px;
-  text-align: left;
-}
+// .confirm {
+//   margin: 0 0 20px 10px;
+//   color: gray;
+//   font-size: 13px;
+//   text-align: left;
+// }

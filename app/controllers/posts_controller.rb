@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.order(updated_at: :desc).limit(1)
-    @post_news = Post.order(created_at: :desc).limit(5)
-    @posts = Post.all.order(created_at: :desc)
+    # @post = Post.order(updated_at: :desc).limit(1)
+    # @post_news = Post.order(created_at: :desc).limit(5)
+    @posts = Post.all.order(created_at: :desc).limit(3)
   end
 
   def new
@@ -24,12 +24,13 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by(id: params[:id])
+    @post.image.cache! unless @post.image.blank?
   end
 
   def update
     @post = Post.find_by(id: params[:id])
     if @post.update_attributes(post_params)
-      redirect_to root_path
+      redirect_to post_path
     else
       render action: :edit
     end
@@ -41,8 +42,12 @@ class PostsController < ApplicationController
     redirect_to :root
   end
 
+  def archives
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(9)
+  end
+
   private
   def post_params
-    params.require(:post).permit(:text, :title, :image)
+    params.require(:post).permit(:text, :title, :image, :image_cache)
   end
 end

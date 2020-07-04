@@ -1,9 +1,69 @@
-.wrap
-  %h2.wrap__heading
-    タイトル
-  .wrap__title
-    = @post.title
-  %h2.wrap__heading
-    内容
-  .wrap__content
-    = @post.text
+.wrapper#wrapper
+  .global_header
+    %ul.global_header__global_menu
+      %h1.global_header__global_menu__site_logo
+        = link_to "Basic Design Note", root_path
+      .global_header__global_menu__block
+        %li.global_header__global_menu__block__menu_item
+          = link_to "Archives", archives_posts_path
+        - if user_signed_in?
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Logout", destroy_user_session_path, method: :delete
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Post", new_post_path
+        - else
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Login", new_user_session_path
+          %li.global_header__global_menu__block__menu_item
+            = link_to "Signup", new_user_registration_path, class: 'post'
+  .show_content
+    .show_content__left_inner
+      .show_content__left_inner__post_wrap
+        %h2.show_content__left_inner__post_wrap__post_title
+          = @post.title
+        .show_content__left_inner__post_wrap__post_data
+          Posted
+          = @post.created_at.strftime("%Y/%m/%d")
+        .show_content__left_inner__post_wrap__post_image
+          - if @post.image?
+            = image_tag @post.image.url, width: "100%"
+          - else
+            = image_tag "sample-1.jpg", width: "100%"
+        .show_content__left_inner__post_wrap__post_text
+          = @post.text
+        .show_content__left_inner__edit_delete_button
+          - if user_signed_in?
+            .show_content__left_inner__edit_delete_button__submit
+              = link_to "", edit_post_path(@post), class: "edit_button fas fa-edit"
+            .show_content__left_inner__edit_delete_button__submit
+              = link_to "", @post, method: :delete, data: { confirm: "#{@post.title}を削除してもよろしいですか？" }, class: "delete_button fas fa-trash-alt"
+  .home_footer
+    = link_to "#wrapper", { anchor: "wrapper" } do
+      .home_footer__top_btn
+    .home_footer__footer_title
+      = link_to "Basic Design Note", root_path
+    %ul.home_footer__local_menu
+      %li.home_footer__local_menu__menu_item
+        = link_to "Archives", archives_posts_path
+      - if user_signed_in?
+        %li.home_footer__local_menu__menu_item
+          = link_to "Logout", destroy_user_session_path, method: :delete
+        %li.home_footer__local_menu__menu_item
+          = link_to "Post", new_post_path
+      - else
+        %li.home_footer__local_menu__menu_item
+          = link_to "Login", new_user_session_path
+        %li.home_footer__local_menu__menu_item
+          = link_to "Signup", new_user_registration_path, class: 'post'
+    .home_footer__copyright
+      © 2020 Basic Design Note All Rights Reserved.
+
+-# .wrap
+-#   %h2.wrap__heading
+-#     タイトル
+-#   .wrap__title
+-#     = @post.title
+-#   %h2.wrap__heading
+-#     内容
+-#   .wrap__content
+-#     = @post.text
