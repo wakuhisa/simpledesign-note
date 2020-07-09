@@ -17,12 +17,12 @@
     .home_content__left_inner
       .home_content__left_inner__module_block
         %h1.home_content__left_inner__module_block__title_logo
-          Basic Design Note
+          Simple Design Note
         .home_content__left_inner__module_block__sub_title
           “デザインの基本”を学び直すブログ
     .home_content__right_inner
       .home_content__right_inner__wrap
-        - @posts.each do |post|
+        - @posts.zip(@users) do |post, user|
           .home_content__right_inner__wrap__article_block
             = link_to post_path(post) do
               .home_content__right_inner__wrap__article_block__post_image
@@ -33,7 +33,8 @@
               .home_content__right_inner__wrap__article_block__post_title
                 = post.title
               .home_content__right_inner__wrap__article_block__post_data
-                Posted 
+                -# Posted 
+                #{post.user.nickname}さん
                 = post.created_at.strftime("%Y/%m/%d")
       .home_content__right_inner__module_block
         = link_to archives_posts_path do
@@ -43,7 +44,7 @@
     = link_to "#wrapper", { anchor: "wrapper" } do
       .home_footer__top_btn
     .home_footer__footer_title
-      = link_to "Basic Design Note", root_path
+      = link_to "Simple Design Note", root_path
     %ul.home_footer__local_menu
       %li.home_footer__local_menu__menu_item
         = link_to "Archives", archives_posts_path
@@ -58,7 +59,7 @@
         %li.home_footer__local_menu__menu_item
           = link_to "Signup", new_user_registration_path, class: 'post'
     .home_footer__copyright
-      © 2020 Basic Design Note All Rights Reserved.
+      © 2020 Simple Design Note All Rights Reserved.
 
 
 -# .top
