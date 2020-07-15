@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     # @post = Post.order(updated_at: :desc).limit(1)
     # @post_news = Post.order(created_at: :desc).limit(5)
     @posts = Post.all.order(created_at: :desc).limit(3)
+    @users = User.all
   end
 
   def new
@@ -10,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    # @post = Post.new(post_params, user_id: @current_user.id)
     @post = Post.new(post_params)
     if @post.save
       redirect_to action: :index
@@ -20,6 +24,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
+    @user = @post.user
   end
 
   def edit
@@ -44,10 +50,11 @@ class PostsController < ApplicationController
 
   def archives
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(9)
+    @users = User.all
   end
 
   private
   def post_params
-    params.require(:post).permit(:text, :title, :image, :image_cache)
+    params.require(:post).permit(:text, :title, :image, :image_cache).merge(user_id: current_user.id)
   end
 end
