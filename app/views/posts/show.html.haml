@@ -22,9 +22,9 @@
         %h2.show_content__left_inner__post_wrap__post_title
           = @post.title
         .show_content__left_inner__post_wrap__post_data
-          -# Posted
-          #{@post.user.nickname}さん
+          Posted
           = @post.created_at.strftime("%Y/%m/%d")
+          #{@post.user.nickname}さん
         .show_content__left_inner__post_wrap__post_image
           - if @post.image?
             = image_tag @post.image.url, width: "100%"
@@ -33,14 +33,11 @@
         .show_content__left_inner__post_wrap__post_text
           = @post.text
         .show_content__left_inner__edit_delete_button
-          - if @post.user_id == @current_user.id
+          - if user_signed_in? && @post.user_id == current_user.id
             .show_content__left_inner__edit_delete_button__submit
               = link_to "", edit_post_path(@post), class: "edit_button fas fa-edit"
             .show_content__left_inner__edit_delete_button__submit
               = link_to "", @post, method: :delete, data: { confirm: "#{@post.title}を削除してもよろしいですか？" }, class: "delete_button fas fa-trash-alt"
-          - else
-            .none
-              なし
   .home_footer
     = link_to "#wrapper", { anchor: "wrapper" } do
       .home_footer__top_btn

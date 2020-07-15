@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     # @post = Post.order(updated_at: :desc).limit(1)
@@ -13,7 +13,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params, user_id: @current_user.id)
+    # @post = Post.new(post_params, user_id: @current_user.id)
+    @post = Post.new(post_params)
     if @post.save
       redirect_to action: :index
     else
@@ -24,6 +25,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
+    @user = @post.user
   end
 
   def edit
@@ -53,6 +55,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:text, :title, :image, :image_cache)
+    params.require(:post).permit(:text, :title, :image, :image_cache).merge(user_id: current_user.id)
   end
 end
