@@ -1,5 +1,5 @@
 .wrapper {
-  
+  font-family: 'HiraMinProN-W3';
 }
 // ****************************** home_header
 .home_header {
@@ -77,6 +77,7 @@
       &__sub_title {
         margin: 0 0 18px;
         font-size: 12.5px;
+        letter-spacing: 1px;
       }
     }
   }
@@ -86,12 +87,16 @@
     margin: 0 auto;
     &__wrap {
       width: 100%;
-      margin: 48px 0 0;
+      // margin: 48px 0 0;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
       &__article_block {
         width: calc(100% / 3 - 50px);
+        margin: 48px 75px 0 0;
+        &:last-of-type {
+          margin-right: 0;
+        }
         &__post_image {
           max-width: 100%;
           height: auto;
@@ -114,7 +119,8 @@
           color: $salmon;
         }
         &:hover &__post_image {
-          transform: scale(0.97, 0.97);
+          // transform: scale(0.97, 0.97);
+          box-shadow: 0 8px 8px $gray;
         }
       }
     }

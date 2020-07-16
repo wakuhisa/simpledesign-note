@@ -169,7 +169,8 @@
           color: $salmon;
         }
         &:hover &__post_image {
-          transform: scale(0.97, 0.97);
+          // transform: scale(0.97, 0.97);
+          box-shadow: 0 8px 8px $gray;
         }
       }
     }

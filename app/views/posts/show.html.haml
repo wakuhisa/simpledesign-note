@@ -2,7 +2,7 @@
   .global_header
     %ul.global_header__global_menu
       %h1.global_header__global_menu__site_logo
-        = link_to "Simple Design Note", root_path
+        = link_to image_tag("site-logo-black.png", width: "170px"), root_path
       .global_header__global_menu__block
         %li.global_header__global_menu__block__menu_item
           = link_to "Archives", archives_posts_path
@@ -42,7 +42,7 @@
     = link_to "#wrapper", { anchor: "wrapper" } do
       .home_footer__top_btn
     .home_footer__footer_title
-      = link_to "Simple Design Note", root_path
+      = link_to image_tag("site-logo-black.png", width: "170px"), root_path
     %ul.home_footer__local_menu
       %li.home_footer__local_menu__menu_item
         = link_to "Archives", archives_posts_path
