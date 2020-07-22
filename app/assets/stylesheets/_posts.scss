@@ -1,5 +1,13 @@
+body {
+  // background-color: #eaf79a;
+}
+
 .wrapper {
-  font-family: 'HiraMinProN-W3';
+  // color: #1b0c65;
+  // background-color: #eaf79a;
+
+  // color: #6729d6;
+  // background-color: #9ddc29;
 }
 // ****************************** home_header
 .home_header {
@@ -105,7 +113,7 @@
           transition: all .5s ease; //追加
         }
         &__post_title {
-          margin: 5px 0 0;
+          margin: 10px 0 0;
           color: $black;
           font-size: 16px;
           transition: all .5s ease;
@@ -230,7 +238,8 @@
     }
   }
   &__copyright {
-    margin: 24px 0 48px;
+    margin: 24px 0 0;
+    padding: 0 0 48px;
     font-size: 10px;
     text-align: center;
   }
