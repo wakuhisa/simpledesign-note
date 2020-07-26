@@ -152,7 +152,7 @@
           transition: all .5s ease;
         }
         &__post_title {
-          margin: 5px 0 0;
+          margin: 10px 0 0;
           color: $black;
           font-size: 16px;
           transition: all .5s ease;
@@ -169,7 +169,8 @@
           color: $salmon;
         }
         &:hover &__post_image {
-          transform: scale(0.97, 0.97);
+          // transform: scale(0.97, 0.97);
+          box-shadow: 0 8px 8px $gray;
         }
       }
     }

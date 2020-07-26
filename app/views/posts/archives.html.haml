@@ -2,7 +2,7 @@
   .archives_header
     %ul.archives_header__global_menu
       %h1.archives_header__global_menu__site_logo
-        = link_to "Simple Design Note", root_path
+        = link_to image_tag("site-logo-black.png", width: "170px"), root_path
       .archives_header__global_menu__block
         %li.archives_header__global_menu__block__menu_item
           = link_to "Archives", archives_posts_path
@@ -48,7 +48,7 @@
     = link_to "#wrapper", { anchor: "wrapper" } do
       .archives_footer__top_btn
     .archives_footer__footer_title
-      = link_to "Simple Design Note", root_path
+      = link_to image_tag("site-logo-black.png", width: "170px"), root_path
     %ul.archives_footer__local_menu
       %li.archives_footer__local_menu__menu_item
         = link_to "Archives", archives_posts_path

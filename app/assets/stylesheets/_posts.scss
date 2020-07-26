@@ -1,5 +1,13 @@
+body {
+  // background-color: #eaf79a;
+}
+
 .wrapper {
-  
+  // color: #1b0c65;
+  // background-color: #eaf79a;
+
+  // color: #6729d6;
+  // background-color: #9ddc29;
 }
 // ****************************** home_header
 .home_header {
@@ -77,6 +85,7 @@
       &__sub_title {
         margin: 0 0 18px;
         font-size: 12.5px;
+        letter-spacing: 1px;
       }
     }
   }
@@ -86,12 +95,16 @@
     margin: 0 auto;
     &__wrap {
       width: 100%;
-      margin: 48px 0 0;
+      // margin: 48px 0 0;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
       &__article_block {
         width: calc(100% / 3 - 50px);
+        margin: 48px 75px 0 0;
+        &:last-of-type {
+          margin-right: 0;
+        }
         &__post_image {
           max-width: 100%;
           height: auto;
@@ -100,7 +113,7 @@
           transition: all .5s ease; //追加
         }
         &__post_title {
-          margin: 5px 0 0;
+          margin: 10px 0 0;
           color: $black;
           font-size: 16px;
           transition: all .5s ease;
@@ -114,7 +127,8 @@
           color: $salmon;
         }
         &:hover &__post_image {
-          transform: scale(0.97, 0.97);
+          // transform: scale(0.97, 0.97);
+          box-shadow: 0 8px 8px $gray;
         }
       }
     }
@@ -224,7 +238,8 @@
     }
   }
   &__copyright {
-    margin: 24px 0 48px;
+    margin: 24px 0 0;
+    padding: 0 0 48px;
     font-size: 10px;
     text-align: center;
   }
