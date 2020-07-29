@@ -40,28 +40,3 @@
                 = f.label :確認の為もう一度入力してください。
             .signup_content__left_inner__block__form_wrap__submit
               = f.submit "新規登録", class: "signup-button"
-
-
-  -# %h1.logo
-  -#   = link_to "Sakusaku", root_path
-  -# .wrap
-  -#   %h2.wrap__title 新規登録
-  -#   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  -#     = render "devise/shared/error_messages", resource: resource
-  -#     .field
-  -#       = f.text_field :nickname, placeholder: "ニックネーム", class: "nickname-box"
-  -#     .field
-  -#       = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "email-box"
-  -#     .field
-  -#       = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "pass-box"
-  -#       - if @minimum_password_length
-  -#         %em
-  -#           .length
-  -#             (#{@minimum_password_length} 文字以上)
-  -#     .field
-  -#       = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード", class: "pass-box"
-  -#       .confirm
-  -#         = f.label :確認の為もう一度入力してください。
-  -#     .actions
-  -#       = f.submit "新規登録", class: "login-button"
-  -#   = render "devise/shared/links"

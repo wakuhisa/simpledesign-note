@@ -34,13 +34,8 @@
               .archives_content__right_inner__wrap__article_block__post_title
                 = post.title
               .archives_content__right_inner__wrap__article_block__post_data
-                -# Posted 
                 #{post.user.nickname}さん
                 = post.created_at.strftime("%Y/%m/%d")
-      -# .archives_content__right_inner__module_block
-      -#   = link_to archives_posts_path do
-      -#     .archives_content__right_inner__module_block__btn_block
-      -#       Archives　→
       .archives_content__right_inner__page_nation
         .archives_content__right_inner__page_nation__submit
           = paginate @posts
