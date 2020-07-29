@@ -35,21 +35,3 @@
                   = f.label :remember_me, class: "remember-text"
             .login_content__left_inner__block__form_wrap__submit
               = f.submit "ログイン", class: "login-button"
-
--# .wrapper
--#   %h1.logo
--#     = link_to "Sakusaku", root_path
--#   .wrap
--#     %h2.wrap__title ログイン
--#     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
--#       .field
--#         = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "email-box"
--#       .field
--#         = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "pass-box"
--#       - if devise_mapping.rememberable?
--#         .field.remember-area
--#           = f.check_box :remember_me
--#           = f.label :remember_me, class: "remember-text"
--#       .actions
--#         = f.submit "ログイン", class: "login-button"
--#     -# = render "devise/shared/links"
