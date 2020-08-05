@@ -29,8 +29,8 @@
               .archives_content__right_inner__wrap__article_block__post_image
                 - if post.image?
                   = image_tag post.image.url, width: "100%"
-                -# - else
-                -#   = image_tag "sample-1.jpg", width: "100%"
+                - else
+                  = image_tag "sample-1.jpg", width: "100%"
               .archives_content__right_inner__wrap__article_block__post_title
                 = post.title
               .archives_content__right_inner__wrap__article_block__post_data
