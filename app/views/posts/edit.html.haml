@@ -30,6 +30,9 @@
                   = icon('fa','images', class: 'icon')
                   = f.file_field :image, class: "hidden"
                   = f.hidden_field :image_cache
+            .edit_content__left_inner__block__form_wrap__remove_image
+              = f.check_box :remove_image
+              画像を削除する
             .edit_content__left_inner__block__form_wrap__title_field
               = f.text_field :title, placeholder: "タイトル", class: "title_box"
             .edit_content__left_inner__block__form_wrap__text_field
