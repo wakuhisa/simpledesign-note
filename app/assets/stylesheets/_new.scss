@@ -149,46 +149,18 @@
   }
 }
 
-
-// .post-form {
-//   width: 500px;
-//   margin: 0 auto;
-//   &__title {
-//     margin: 30px 0;
-//     text-align: center;
-//     a {
-//       color: black;
-//       font-size: 20px;
-//     }
-//   }
-//   &__field {
-//     margin-bottom: 25px;
-//     font-size: 13px;
-//     display: flex;
-//     flex-direction: column;
-//     .image-field {
-//       padding: 10px 10px;
-//     }
-//     .title-field {
-//       width: 100%;
-//       padding: 10px 10px;
-//     }
-//     .text-field {
-//       width: 100%;
-//       padding: 10px 10px 150px;
-//     }
-//   }
-//   &__action {
-//     margin-top: 50px;
-//     text-align: center;
-//     .post-submit {
-//       padding: 10px 50px;
-//       color: white;
-//       font-size: 15px;
-//       background-color: salmon;
-//       border: none;
-//       border-radius: 10px;
-//       cursor: pointer;
-//     }
-//   }
-// }
+.prev-image {
+  width: 250px;
+}
+.sample {
+  width: 250px;
+}
+.hidden_file {
+  display: none;
+}
+.photo-icon {
+  margin: 0 0 0 12px;
+  padding: 0 2px;
+  font-size: 20px;
+  cursor: pointer;
+}
