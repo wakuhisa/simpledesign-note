@@ -2,9 +2,6 @@
   width: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.8);
-  // position: fixed;
-  // top: 0;
-  // left: 0;
   z-index: 100;
   &__global_menu {
     width: 85%;
@@ -58,7 +55,6 @@
   }
 }
 .post_content {
-  // padding: 132px 0 0;
   &__left_inner {
     width: 100%;
     height: calc(100vh - 58px);
@@ -81,7 +77,6 @@
           margin: 5px 0 0;
           padding: 10px;
           font-size: 1em;
-          // border: $gray 1px solid;
           border: none;
           }
           .form_mask {
@@ -111,7 +106,6 @@
             font-size: 32px;
             font-weight: 700;
             letter-spacing: .04em;
-            // border: $gray 1px solid;
             border: none;
           }
         }
@@ -123,7 +117,6 @@
             margin: 5px 0 0;
             padding: 10px;
             font-size: 18px;
-            // border: $gray 1px solid;
             border: none;
             resize: vertical;
           }

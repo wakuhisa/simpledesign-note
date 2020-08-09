@@ -24,6 +24,7 @@
         .show_content__left_inner__post_wrap__post_data
           Posted
           = @post.created_at.strftime("%Y/%m/%d")
+          by 
           #{@post.user.nickname}さん
         .show_content__left_inner__post_wrap__post_image
           - if @post.image?
@@ -59,13 +60,3 @@
           = link_to "Signup", new_user_registration_path, class: 'post'
     .home_footer__copyright
       © 2020 Simple Design Note All Rights Reserved.
-
--# .wrap
--#   %h2.wrap__heading
--#     タイトル
--#   .wrap__title
--#     = @post.title
--#   %h2.wrap__heading
--#     内容
--#   .wrap__content
--#     = @post.text
