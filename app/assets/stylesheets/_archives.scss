@@ -60,9 +60,6 @@
 .archives_content {
   padding: 132px 0 0;
   &__left_inner {
-    // width: 100%;
-    // height: calc(100vh - 58px);
-    // margin: 0 auto;
     &__block {
       margin: 72px 0 0;
       &__page_title {
@@ -81,7 +78,6 @@
           margin: 5px 0 0;
           padding: 10px;
           font-size: 1em;
-          // border: $gray 1px solid;
           border: none;
           }
         }
@@ -95,7 +91,6 @@
             font-size: 32px;
             font-weight: 700;
             letter-spacing: .04em;
-            // border: $gray 1px solid;
             border: none;
           }
         }
@@ -107,7 +102,6 @@
             margin: 5px 0 0;
             padding: 10px;
             font-size: 18px;
-            // border: $gray 1px solid;
             border: none;
             resize: vertical;
           }
@@ -136,7 +130,6 @@
     margin: 0 auto;
     &__wrap {
       width: 100%;
-      // margin: 48px 0 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
@@ -152,7 +145,7 @@
           transition: all .5s ease;
         }
         &__post_title {
-          margin: 5px 0 0;
+          margin: 10px 0 0;
           color: $black;
           font-size: 16px;
           transition: all .5s ease;
@@ -169,7 +162,7 @@
           color: $salmon;
         }
         &:hover &__post_image {
-          transform: scale(0.97, 0.97);
+          box-shadow: 0 8px 8px $gray;
         }
       }
     }

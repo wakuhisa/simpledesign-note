@@ -2,7 +2,7 @@
   .global_header
     %ul.global_header__global_menu
       %h1.global_header__global_menu__site_logo
-        = link_to "Basic Design Note", root_path
+        = link_to image_tag("site-logo-black.png", width: "170px"), root_path
       .global_header__global_menu__block
         %li.global_header__global_menu__block__menu_item
           = link_to "Archives", archives_posts_path
@@ -16,39 +16,44 @@
             = link_to "Login", new_user_session_path
           %li.global_header__global_menu__block__menu_item
             = link_to "Signup", new_user_registration_path, class: 'post'
+
   .post_content
     .post_content__left_inner
       .post_content__left_inner__block
-        -# %h2.post_content__left_inner__block__page_title
-        -#   新規投稿
         .post_content__left_inner__block__form_wrap
-          = form_with(model: @post, local: true) do |f|
-            .post_content__left_inner__block__form_wrap__image_field
-              -# 画像
-              = f.text_field :image, placeholder: "画像URL", class: "image_box"
-              .form_mask
-                %label.label
-                  = icon('fa','images', class: 'icon')
-                  = f.file_field :image, class: "hidden"
+          = form_with model: @post, local: true do |f|
+            .form-group
+              .image_form
+                .image_form__contents
+                  = f.label :image, class: 'image_label' do
+                    .prev-contents
+                      - if @post.image?
+                        .prev-content
+                          = image_tag @post.image.url, alt: "preview", class: "prev-image"
+                      - else
+                        = icon('fas', 'image', class: 'photo-icon')
+                    = f.file_field :image, class: 'image_form__contents__field hidden_file'
             .post_content__left_inner__block__form_wrap__title_field
-              -# 記事タイトル
               = f.text_field :title, placeholder: "タイトル", class: "title_box"
             .post_content__left_inner__block__form_wrap__text_field
-              -# テキスト
               = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text_box", cols: "40", rows: "10"
             .post_content__left_inner__block__form_wrap__submit
               = f.submit "投稿", class: "post_submit"
 
-
-      -# = form_with(model: @post, local: true) do |f|
-      -#   .post-form__field
-      -#     画像
-      -#     = f.text_field :image, placeholder: "URL", class: "image-field"
-      -#   .post-form__field
-      -#     記事タイトル
-      -#     = f.text_field :title, placeholder: "タイトル", class: "title-field"
-      -#   .post-form__field
-      -#     テキスト
-      -#     = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text-field"
-      -#   .post-form__action
-      -#     = f.submit "投稿", class: "post-submit"
+  -# .post_content
+  -#   .post_content__left_inner
+  -#     .post_content__left_inner__block
+  -#       .post_content__left_inner__block__form_wrap
+  -#         = form_with model: @post, local: true do |f|
+  -#           .post_content__left_inner__block__form_wrap__image_field
+  -#             = f.text_field :image, placeholder: "画像URL", class: "image_box"
+  -#             .form_mask
+  -#               %label.label
+  -#                 = icon('fa','images', class: 'icon')
+  -#                 = f.file_field :image, class: "hidden"
+  -#           .post_content__left_inner__block__form_wrap__title_field
+  -#             = f.text_field :title, placeholder: "タイトル", class: "title_box"
+  -#           .post_content__left_inner__block__form_wrap__text_field
+  -#             = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text_box", cols: "40", rows: "10"
+  -#           .post_content__left_inner__block__form_wrap__submit
+  -#             = f.submit "投稿", class: "post_submit"

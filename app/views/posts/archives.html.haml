@@ -2,7 +2,7 @@
   .archives_header
     %ul.archives_header__global_menu
       %h1.archives_header__global_menu__site_logo
-        = link_to "Basic Design Note", root_path
+        = link_to image_tag("site-logo-black.png", width: "170px"), root_path
       .archives_header__global_menu__block
         %li.archives_header__global_menu__block__menu_item
           = link_to "Archives", archives_posts_path
@@ -23,7 +23,7 @@
           Archives
     .archives_content__right_inner
       .archives_content__right_inner__wrap
-        - @posts.each do |post|
+        - @posts.zip(@users) do |post, user|
           .archives_content__right_inner__wrap__article_block
             = link_to post_path(post) do
               .archives_content__right_inner__wrap__article_block__post_image
@@ -34,12 +34,8 @@
               .archives_content__right_inner__wrap__article_block__post_title
                 = post.title
               .archives_content__right_inner__wrap__article_block__post_data
-                Posted 
+                #{post.user.nickname}さん
                 = post.created_at.strftime("%Y/%m/%d")
-      -# .archives_content__right_inner__module_block
-      -#   = link_to archives_posts_path do
-      -#     .archives_content__right_inner__module_block__btn_block
-      -#       Archives　→
       .archives_content__right_inner__page_nation
         .archives_content__right_inner__page_nation__submit
           = paginate @posts
@@ -47,7 +43,7 @@
     = link_to "#wrapper", { anchor: "wrapper" } do
       .archives_footer__top_btn
     .archives_footer__footer_title
-      = link_to "Basic Design Note", root_path
+      = link_to image_tag("site-logo-black.png", width: "170px"), root_path
     %ul.archives_footer__local_menu
       %li.archives_footer__local_menu__menu_item
         = link_to "Archives", archives_posts_path
@@ -62,4 +58,4 @@
         %li.archives_footer__local_menu__menu_item
           = link_to "Signup", new_user_registration_path, class: 'post'
     .archives_footer__copyright
-      © 2020 Basic Design Note All Rights Reserved.
+      © 2020 Simple Design Note All Rights Reserved.
