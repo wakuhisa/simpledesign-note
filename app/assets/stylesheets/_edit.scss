@@ -85,3 +85,23 @@
     }
   }
 }
+
+.prev-image {
+  width: 250px;
+  cursor: pointer;
+}
+.sample {
+  width: 250px;
+}
+.hidden_file {
+  display: none;
+}
+.photo-icon {
+  margin: 0 0 0 12px;
+  padding: 0 2px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.delete_box {
+  margin: 15px 0 0 12px;
+}
