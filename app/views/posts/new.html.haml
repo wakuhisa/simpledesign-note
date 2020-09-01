@@ -39,21 +39,3 @@
               = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text_box", cols: "40", rows: "10"
             .post_content__left_inner__block__form_wrap__submit
               = f.submit "投稿", class: "post_submit"
-
-  -# .post_content
-  -#   .post_content__left_inner
-  -#     .post_content__left_inner__block
-  -#       .post_content__left_inner__block__form_wrap
-  -#         = form_with model: @post, local: true do |f|
-  -#           .post_content__left_inner__block__form_wrap__image_field
-  -#             = f.text_field :image, placeholder: "画像URL", class: "image_box"
-  -#             .form_mask
-  -#               %label.label
-  -#                 = icon('fa','images', class: 'icon')
-  -#                 = f.file_field :image, class: "hidden"
-  -#           .post_content__left_inner__block__form_wrap__title_field
-  -#             = f.text_field :title, placeholder: "タイトル", class: "title_box"
-  -#           .post_content__left_inner__block__form_wrap__text_field
-  -#             = f.text_area :text, placeholder: "ご自由にお書きください。", class: "text_box", cols: "40", rows: "10"
-  -#           .post_content__left_inner__block__form_wrap__submit
-  -#             = f.submit "投稿", class: "post_submit"
