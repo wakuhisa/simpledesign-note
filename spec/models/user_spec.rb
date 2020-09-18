@@ -40,8 +40,8 @@ RSpec.describe User, type: :model do
   it "パスワードがない場合、無効である" do
     user = User.new(
       email: "testman@example.com",
-      password: "password",
-      nickname: nil
+      password: nil,
+      nickname: "testman"
     )
     expect(user.valid?).to eq(false)
   end
