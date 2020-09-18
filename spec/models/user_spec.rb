@@ -37,4 +37,13 @@ RSpec.describe User, type: :model do
     expect(@user.valid?).to eq(false)
   end
 
+  it "パスワードがない場合、無効である" do
+    user = User.new(
+      email: "testman@example.com",
+      password: "password",
+      nickname: nil
+    )
+    expect(user.valid?).to eq(false)
+  end
+
 end
