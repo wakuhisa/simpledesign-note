@@ -6,4 +6,9 @@ RSpec.describe Post, type: :model do
     expect(FactoryBot.create(:post)).to be_valid
   end
 
+  it "タイトルがない場合、無効である" do
+    post = FactoryBot.build(:post, title: nil)
+    expect(post.valid?).to eq(false)
+  end
+
 end
