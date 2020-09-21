@@ -7,11 +7,7 @@ RSpec.describe User, type: :model do
   end
 
   it "メールアドレスがない場合、無効である" do
-    user = User.new(
-      email: nil,
-      password: "password",
-      nickname: "testman"
-    )
+    user = FactoryBot.build(:user, email: nil)
     expect(user.valid?).to eq(false)
   end
 
