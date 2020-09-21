@@ -11,4 +11,9 @@ RSpec.describe Post, type: :model do
     expect(post.valid?).to eq(false)
   end
 
+  it "テキストがない場合、無効である" do
+    post = FactoryBot.build(:post, text: nil)
+    expect(post.valid?).to eq(false)
+  end
+
 end
