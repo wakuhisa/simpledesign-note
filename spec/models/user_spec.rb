@@ -24,11 +24,7 @@ RSpec.describe User, type: :model do
   end
 
   it "ニックネームがない場合、無効である" do
-    user = User.new(
-      email: "testman@example.com",
-      password: "password",
-      nickname: nil
-    )
+    user = FactoryBot.build(:user, nickname: nil)
     expect(user.valid?).to eq(false)
   end
 
