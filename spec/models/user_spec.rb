@@ -12,20 +12,10 @@ RSpec.describe User, type: :model do
   end
 
   it "重複したメールアドレスの場合、無効である" do
-    User.create(
-      email: "testman@example.com",
-      password: "password",
-      nickname: "testman"
-    )
-
-    @user = User.new(
-      email: "testman@example.com",
-      password: "password",
-      nickname: "exampleman"
-    )
-
-    @user.valid?
-    expect(@user.valid?).to eq(false)
+    user1 = FactoryBot.create(:user)
+    user2 = FactoryBot.build(:user)
+    user2.valid?
+    expect(user2.valid?).to eq(false)
   end
 
   it "パスワードがない場合、無効である" do
