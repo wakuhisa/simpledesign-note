@@ -4,7 +4,7 @@ FactoryBot.define do
     name { "testman" }
     title { "test" }
     text { "tester" }
-    image { Rack::Test::UploaderFile.new(File.join(Rails.root, 'app/assets/images/test.png')) }
+    image { Rack::Test::UploaderFile.new(File.join(Rails.root, 'app/assets/images/test.jpg')) }
     association :user
   end
 end
