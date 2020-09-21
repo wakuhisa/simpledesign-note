@@ -1,10 +1,9 @@
 FactoryBot.define do
   factory :post do
-    user_id { "1" }
-    name { "testman" }
     title { "test" }
     text { "tester" }
-    image { Rack::Test::UploaderFile.new(File.join(Rails.root, 'app/assets/images/test.jpg')) }
+    # user_id { "1" }
+    # image { [ Rack::Test::UploadedFile.new(Rails.root.join( 'app/assets/images/test.jpg' ), 'app/assets/images/test.jpg') ] }
     association :user
   end
 end
