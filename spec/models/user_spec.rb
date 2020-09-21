@@ -19,11 +19,7 @@ RSpec.describe User, type: :model do
   end
 
   it "パスワードがない場合、無効である" do
-    user = User.new(
-      email: "testman@example.com",
-      password: nil,
-      nickname: "testman"
-    )
+    user = FactoryBot.build(:user, email: nil)
     expect(user.valid?).to eq(false)
   end
 
