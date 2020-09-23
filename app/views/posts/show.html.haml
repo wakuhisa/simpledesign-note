@@ -32,8 +32,7 @@
           - else
             = image_tag "sample-1.jpg", width: "100%"
         .show_content__left_inner__post_wrap__post_text
-          = simple_format(@post.text)
-          -# = @post.text
+          = simple_format(h(@post.text))
         .show_content__left_inner__edit_delete_button
           - if user_signed_in? && @post.user_id == current_user.id
             .show_content__left_inner__edit_delete_button__submit
