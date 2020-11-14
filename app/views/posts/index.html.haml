@@ -1,2 +1,61 @@
-%h1.top-view
-  トップページ
+.wrapper#wrapper
+  .home_header
+    %ul.home_header__global_menu
+      %li.home_header__global_menu__menu_item
+        = link_to "Archives", archives_posts_path
+      - if user_signed_in?
+        .home_header__global_menu__menu_item
+          = link_to "Logout", destroy_user_session_path, method: :delete
+        %li.home_header__global_menu__menu_item
+          = link_to "Post", new_post_path
+      - else
+        %li.home_header__global_menu__menu_item
+          = link_to "Login", new_user_session_path
+        %li.home_header__global_menu__menu_item
+          = link_to "Signup", new_user_registration_path, class: 'post'
+  .home_content
+    .home_content__left_inner
+      .home_content__left_inner__module_block
+        %h1.home_content__left_inner__module_block__title_logo
+          = image_tag "site-logo-black.png", width: "350px"
+        .home_content__left_inner__module_block__sub_title
+          シンプルイズベストなブログ
+    .home_content__right_inner
+      .home_content__right_inner__wrap
+        - @posts.zip(@users) do |post, user|
+          .home_content__right_inner__wrap__article_block
+            = link_to post_path(post) do
+              .home_content__right_inner__wrap__article_block__post_image
+                - if post.image?
+                  = image_tag post.image.url, width: "100%"
+                - else
+                  = image_tag "sample-1.jpg", width: "100%"
+              .home_content__right_inner__wrap__article_block__post_title
+                = post.title
+              .home_content__right_inner__wrap__article_block__post_data
+                #{post.user.nickname}さん
+                = post.created_at.strftime("%Y/%m/%d")
+      .home_content__right_inner__module_block
+        = link_to archives_posts_path do
+          .home_content__right_inner__module_block__btn_block
+            Archives　→
+  .home_footer
+    = link_to "#wrapper", { anchor: "wrapper" } do
+      .home_footer__top_btn
+    .home_footer__footer_title
+      = link_to image_tag("site-logo-black.png", width: "170px"), root_path
+    %ul.home_footer__local_menu
+      %li.home_footer__local_menu__menu_item
+        = link_to "Archives", archives_posts_path
+      - if user_signed_in?
+        %li.home_footer__local_menu__menu_item
+          = link_to "Logout", destroy_user_session_path, method: :delete
+        %li.home_footer__local_menu__menu_item
+          = link_to "Post", new_post_path
+      - else
+        %li.home_footer__local_menu__menu_item
+          = link_to "Login", new_user_session_path
+        %li.home_footer__local_menu__menu_item
+          = link_to "Signup", new_user_registration_path, class: 'post'
+    .home_footer__copyright
+      © 2020 Simple Design Note All Rights Reserved.

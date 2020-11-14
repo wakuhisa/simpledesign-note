@@ -1,0 +1,66 @@
+.login_content, .signup_content {
+  &__left_inner {
+    width: 480px;
+    margin: 54px auto 0;
+    &__block {
+      margin: 42px 0 0;
+      &__page_title {
+        font-weight: normal;
+        text-align: center;
+      }
+      &__form_wrap {
+        width: 85%;
+        margin: 32px auto;
+        padding: 30px;
+        border: $black 1px solid;
+        border-radius: 5px;
+        &__mail_field, &__nickname_field {
+          margin: 24px auto 8px;
+          .email-box, .nickname-box {
+            width: 100%;
+            line-height: 1.8;
+            margin: 5px 0 0;
+            padding: 10px;
+            font-size: 1em;
+            border: $gray 1px solid;
+            border-radius: 5px;
+          }
+        }
+        &__pass_field {
+          margin: 24px auto 8px;
+          .pass-box {
+            width: 100%;
+            line-height: 1.8;
+            margin: 5px 0 0;
+            padding: 10px;
+            font-size: 1em;
+            border: $gray 1px solid;
+            border-radius: 5px;
+          }
+          .length, .confirm {
+            margin: 5px 0 0;
+          }
+        }
+        &__submit {
+          margin: 40px 0 0;
+          padding: 0 0 36px;
+          text-align: center;
+          .login-button, .signup-button {
+            padding: 8px 40px;
+            color: $white;
+            font-size: 13.5px;
+            border: none;
+            border-radius: 5px;
+            background-color: $salmon;
+            display: inline-block;
+            transition: all .5s ease;
+            cursor: pointer;
+          }
+        }
+        .remember-area {
+          margin: 40px 0 0;
+        }
+      }
+    }
+  }
+}

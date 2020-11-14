@@ -1,0 +1,107 @@
+.edit_content {
+  &__left_inner {
+    width: 100%;
+    height: calc(100vh - 58px);
+    margin: 0 auto;
+    &__block {
+      margin: 42px 0 0;
+      &__page_title {
+        font-weight: normal;
+        text-align: center;
+      }
+      &__form_wrap {
+        width: 85%;
+        margin: 32px auto;
+        &__image_field {
+          margin: 24px 0 8px;
+          position: relative;
+          .image_box {
+          width: 100%;
+          line-height: 1.8;
+          margin: 5px 0 0;
+          padding: 10px;
+          font-size: 1em;
+          border: none;
+          }
+          .form_mask {
+            
+            .label {
+              position: absolute;
+              top: 35%;
+              right: 15px;
+              cursor: pointer;
+              .icon {
+                padding: 0 2px;
+                font-size: 20px;
+              }
+              .hidden {
+                display: none;
+              }
+            }
+          }
+        }
+        &__title_field {
+          margin: 24px 0 8px;
+          .title_box {
+            width: 100%;
+            line-height: 1.8;
+            margin: 5px 0 0;
+            padding: 10px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            border: none;
+          }
+        }
+        &__text_field {
+          margin: 24px 0 8px;
+          .text_box {
+            width: 100%;
+            line-height: 1.8;
+            margin: 5px 0 0;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            resize: vertical;
+          }
+        }
+        &__submit {
+          margin: 40px 0 0;
+          text-align: center;
+          .edit_submit {
+            margin: 0 0 64px;
+            padding: 14px 70px;
+            color: $white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: $salmon;
+            display: inline-block;
+            transition: all .5s ease;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.prev-image {
+  width: 250px;
+  cursor: pointer;
+}
+.sample {
+  width: 250px;
+}
+.hidden_file {
+  display: none;
+}
+.photo-icon {
+  margin: 0 0 0 12px;
+  padding: 0 2px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.delete_box {
+  margin: 15px 0 0 12px;
+}
