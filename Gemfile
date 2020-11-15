@@ -75,3 +75,4 @@ gem 'kaminari'
 gem 'rename'
 gem 'pry-rails'
 gem 'aws-sdk-s3', require: false
+gem 'fog-aws'
