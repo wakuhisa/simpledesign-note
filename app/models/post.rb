@@ -7,7 +7,7 @@ class Post < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  has_one_attached :image
+  # has_one_attached :image
 
   def user
     return User.find_by(id: self.user_id)

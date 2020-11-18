@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by(id: params[:id])
-    # @post.image.cache! unless @post.image.blank?
+    @post.image.cache! unless @post.image.blank?
   end
 
   def update

@@ -28,7 +28,8 @@
             = link_to post_path(post) do
               .archives_content__right_inner__wrap__article_block__post_image
                 - if post.image?
-                  = image_tag post.image if post.image.attached?
+                  = image_tag post.image.url, width: "100%"
+                  -# = image_tag post.image if post.image.attached?
                 - else
                   = image_tag "sample-1.jpg", width: "100%"
               .archives_content__right_inner__wrap__article_block__post_title
