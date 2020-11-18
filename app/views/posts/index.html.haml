@@ -27,7 +27,8 @@
             = link_to post_path(post) do
               .home_content__right_inner__wrap__article_block__post_image
                 - if post.image?
-                  = image_tag post.image.variant(resize_to_limit: [100, 100]) if post.image.attached?
+                  = image_tag post.image.url, width: "100%"
+                  -# = image_tag post.image if post.image.attached?
                 - else
                   = image_tag "sample-1.jpg"
               .home_content__right_inner__wrap__article_block__post_title
