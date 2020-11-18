@@ -28,7 +28,7 @@
           #{@post.user.nickname}さん
         .show_content__left_inner__post_wrap__post_image
           - if @post.image?
-            = image_tag @post.image.url, width: "100%"
+            = image_tag @post.image if post.image.attached?
           - else
             = image_tag "sample-1.jpg", width: "100%"
         .show_content__left_inner__post_wrap__post_text

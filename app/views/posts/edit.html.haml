@@ -29,7 +29,7 @@
                     .prev-contents
                       - if @post.image?
                         .prev-content
-                          = image_tag @post.image.url, alt: "preview", class: "prev-image"
+                          = image_tag @post.image if post.image.attached?
                       - else
                         = icon('fas', 'image', class: 'photo-icon')
                       = f.file_field :image, class: 'image_form__contents__field hidden_file'
